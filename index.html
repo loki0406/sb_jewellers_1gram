@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SB Jewellers • Coming Soon</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#071226;
+      --accent:#d6a649;
+      --muted:#9fb0c1;
+      --card-bg:rgba(255,255,255,0.03);
+      --radius:14px;
+      --maxwidth:1200px;
+      --gap:16px;
+    }
+
+    /* Reset */
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0}
+    body{
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg,#061021 0%, var(--bg) 100%);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      display:flex;
+      justify-content:center;
+      padding:18px 12px;
+    }
+
+    /* Make site full-height to prevent footer overlap */
+    .site{
+      width:100%;
+      max-width:var(--maxwidth);
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      min-height:100vh;    /* ensures footer sits after content */
+    }
+
+    /* HEADER */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:8px 12px;
+      width:100%;
+    }
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{
+      width:56px;height:56px;border-radius:12px;
+      background: linear-gradient(135deg, rgba(214,166,73,0.10), rgba(214,166,73,0.04));
+      display:grid;place-items:center;overflow:hidden;border:1px solid rgba(255,255,255,0.03);
+      flex-shrink:0;
+    }
+    .logo img{width:100%;height:100%;object-fit:contain;display:block}
+    .brand-name .title{ font-family:"Playfair Display", serif; font-size:15px; font-weight:700; color:var(--accent) }
+    .brand-name .sub{ font-size:11px; color:var(--muted); margin-top:3px }
+    .wa-btn{
+      background: linear-gradient(90deg,var(--accent),#f3d89a); color:#071226; border:0;
+      padding:9px 12px;border-radius:10px;font-weight:700;text-decoration:none;white-space:nowrap;
+      box-shadow:0 6px 14px rgba(214,166,73,0.12);
+    }
+
+    /* MAIN area grows to push footer down */
+    main{ flex:1; display:flex; align-items:flex-start; justify-content:center; padding-bottom:12px; }
+
+    .center-card{
+      width:100%;
+      padding:20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border-radius:16px;
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow:0 10px 30px rgba(0,0,0,0.5);
+      /* extra bottom padding to ensure visiting card area never gets covered on small screens */
+      padding-bottom:28px;
+    }
+
+    .left{ flex:1 1 360px; min-width:220px; padding:4px 6px; }
+
+    .coming{
+      font-family:"Playfair Display", serif;
+      color:var(--accent);
+      font-size:36px;
+      margin:6px 0 10px;
+      line-height:1.02;
+      word-break:break-word;
+    }
+    .headline{ font-size:15px; color:var(--muted); margin:0 0 12px }
+    .shop-details{ color:#e9f2f7; font-size:14px; line-height:1.6; margin-bottom:12px }
+    .small{ color:var(--muted); font-size:13px; margin-top:8px }
+
+    /* SOCIAL buttons (mobile-first smaller shapes stacked) */
+    .social-row{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:12px;
+      width:100%;
+    }
+    .soc-btn{
+      display:flex; align-items:center; gap:10px;
+      padding:8px 12px; border-radius:10px; font-size:14px; text-decoration:none; font-weight:700;
+      min-height:44px; justify-content:flex-start; box-shadow:0 6px 12px rgba(0,0,0,0.25); border:0;
+    }
+    .soc-icon{ width:18px; height:18px; display:grid; place-items:center; font-size:14px }
+    .yt1{ background:linear-gradient(90deg,#ff3b30,#ff0000); color:#fff; }
+    .yt2{ background:linear-gradient(90deg,#ff3b30,#ff6b6b); color:#fff; }
+    .inst{ background:linear-gradient(45deg,#f58529,#c13584,#833ab4); color:#fff; }
+    .wa{ background:linear-gradient(90deg,#25D366,#1DA851); color:#071226; }
+
+    /* RIGHT visiting card area */
+    .right{
+      flex:0 0 320px;
+      width:320px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:center;
+      min-width:220px;
+    }
+    .card-placeholder{
+      width:100%; height:200px; border-radius:12px;
+      border:2px dashed rgba(255,255,255,0.06);
+      display:grid; place-items:center; overflow:hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+    }
+    .card-placeholder img{ width:100%; height:100%; object-fit:cover }
+
+    /* visiting label placed AFTER image (prevents overlap) */
+    .visiting-label{ font-weight:700; color:var(--accent); margin-top:6px; font-size:14px }
+    .card-instructions{ text-align:center; color:var(--muted); font-size:13px }
+
+    /* FOOTER - smaller by default, sits below content */
+    footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+      margin-top:6px;
+      padding:10px 6px;
+    }
+
+    /* ---------- RESPONSIVE TWEAKS ---------- */
+
+    /* Tablet: two-column buttons */
+    @media (min-width:600px){
+      .coming{ font-size:42px }
+      .social-row{ flex-direction:row; flex-wrap:wrap; gap:12px; align-items:flex-start }
+      .soc-btn{ flex:1 1 calc(50% - 12px); min-width:180px; padding:9px 12px; font-size:14px }
+      .right{ width:300px }
+      /* reduce bottom padding of center-card on larger screens */
+      .center-card{ padding-bottom:22px; }
+    }
+
+    /* Desktop: buttons side-by-side in one row (compact), reduce footer gap */
+    @media (min-width:900px){
+      .center-card{ align-items:flex-start }
+      .coming{ font-size:48px }
+      .social-row{ flex-direction:row; flex-wrap:nowrap; gap:12px; width:auto; }
+      .soc-btn{ flex:0 0 auto; width:auto; padding:8px 10px; font-size:14px; min-width:150px }
+      .right{ width:320px }
+      /* smaller footer margin on desktop so it doesn't push too far from widget */
+      footer{ font-size:13px; margin-top:12px; }
+      /* less padding-bottom on center-card for desktop */
+      .center-card{ padding-bottom:18px; }
+    }
+
+    /* Large desktop / TV: slightly larger title, compact buttons */
+    @media (min-width:1400px){
+      .coming{ font-size:64px }
+      .soc-btn{ padding:10px 12px; font-size:15px; min-width:160px }
+      .center-card{ padding:28px; gap:26px; }
+      footer{ font-size:13px; margin-top:10px; }
+    }
+
+    /* Small mobile tweaks */
+    @media (max-width:420px){
+      body{ padding:12px; }
+      .logo{ width:48px; height:48px }
+      .brand-name .title{ font-size:14px }
+      .coming{ font-size:30px }
+      .card-placeholder{ height:160px }
+      .soc-btn{ font-size:13px; padding:8px 10px; min-height:42px }
+      /* ensure there's enough breathing room between visiting card and footer */
+      .center-card{ padding-bottom:36px; }
+      footer{ font-size:12px; margin-top:18px; }
+    }
+
+    /* prevent overflow */
+    .center-card, .left, .right { word-wrap:break-word; -webkit-font-smoothing:antialiased; }
+
+  </style>
+</head>
+<body>
+  <div class="site" role="main">
+
+    <!-- HEADER (unchanged) -->
+    <header>
+      <div class="brand">
+        <div class="logo" title="Replace with your raw GitHub logo link">
+          <img id="site-logo" src="https://raw.githubusercontent.com/loki0406/SB_jewellers_website/main/Images/logo.png" alt="SB Jewellers logo">
+        </div>
+
+        <div class="brand-name" aria-hidden="false">
+          <div class="title">SB Jewellers</div>
+          <div class="sub">1 Gram • Imitation Jewellery • Since 2015</div>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a class="wa-btn" href="https://wa.me/919032399091" aria-label="Message on WhatsApp">Message on WhatsApp</a>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="center-card" role="region" aria-label="Coming soon information">
+
+        <!-- LEFT: unchanged content -->
+        <div class="left">
+          <h1 class="coming">Website Coming Soon</h1>
+          <p class="headline">Premium imitation jewellery • Bridal & 1gram daily-wear collections</p>
+
+          <div class="shop-details">
+            <div><strong>💍 Shop:</strong> SB Jewellers — SRI BALAJI IMITATION JEWELLERY</div>
+            <div><strong>📍 Location:</strong> Rajahmundry, Andhra Pradesh</div>
+            <div><strong>🚚 Orders:</strong> Shipping available • 📅 Sunday orders accepted</div>
+            <div style="margin-top:8px"><strong>📞 Contact:</strong> WhatsApp/Call: <a href="tel:+919032399091" style="color:var(--accent); text-decoration:none">+91 90323 99091 / 9704125649</a></div>
+          </div>
+
+          <p class="small">We are setting up our online store — follow us on Instagram or message on WhatsApp to pre-order.</p>
+
+          <!-- SOCIAL BUTTONS -->
+          <div class="social-row" aria-label="Social links">
+            <a class="soc-btn yt1" href="https://youtube.com/@sri_balaji_jewellers?si=mcfQ022VEtoCyFsV" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel 1">
+              <span class="soc-icon" aria-hidden="true">▶️</span>
+              <span>YouTube channel 1</span>
+            </a>
+
+            <a class="soc-btn yt2" href="https://youtube.com/@sbjewellers1gram?si=7FlrJQ_oxduaMx3n" target="_blank" rel="noopener noreferrer" aria-label="YouTube new channel">
+              <span class="soc-icon" aria-hidden="true">▶️</span>
+              <span>YouTube new channel</span>
+            </a>
+
+            <a class="soc-btn inst" href="https://www.instagram.com/sbjewellers_1gram?igsh=MTR5aG90Y2luMGljdQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram account">
+              <span class="soc-icon" aria-hidden="true">📸</span>
+              <span>Instagram account</span>
+            </a>
+
+            <a class="soc-btn wa" href="https://whatsapp.com/channel/0029VbBhHVE002T3JmzdR71e" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp channel">
+              <span class="soc-icon" aria-hidden="true">💬</span>
+              <span>WhatsApp channel</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT: visiting card (label placed after image to avoid overlap) -->
+        <aside class="right" aria-label="Visiting card">
+          <div class="card-placeholder" id="visiting-card">
+            <img id="vc-img" src="https://raw.githubusercontent.com/loki0406/SB_jewellers_website/main/Images/visting_card.png" alt="Your visiting card (replace with your GitHub raw link)">
+          </div>
+
+          <div class="visiting-label">Visiting Card</div>
+          <div class="card-instructions">Experience our collection in-store ✨💛</div>
+        </aside>
+
+      </div>
+    </main>
+
+    <!-- FOOTER (unchanged text, responsive size handled above) -->
+    <footer>
+      SB Jewellers • Rajahmundry • Est. 2015 💍
+    </footer>
+  </div>
+
+  <!-- JS fallback handlers (unchanged) -->
+  <script>
+    function fallbackToText(el, text){
+      const parent = el.parentElement;
+      parent.innerHTML = '<div style="font-weight:700; color:var(--accent); font-size:14px; padding:6px 8px;">' + text + '</div>';
+    }
+    const logo = document.getElementById('site-logo');
+    if(logo) logo.addEventListener('error', ()=> fallbackToText(logo, 'SB Jewellers'));
+    const vc = document.getElementById('vc-img');
+    if(vc) vc.addEventListener('error', ()=> {
+      const parent = document.getElementById('visiting-card');
+      if(parent) parent.innerHTML = '<div style="text-align:center; color:var(--muted); padding:18px;">Visiting card not added<br><small style="color:var(--muted)">Replace with your GitHub raw image link</small></div>';
+    });
+  </script>
+</body>
+</html>
