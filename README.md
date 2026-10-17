@@ -1,90 +1,33 @@
-# 💍 SB Jewellers – Official Website (Coming Soon)
+# SB Jewellers — Rajahmundry
 
-Welcome to the official repository of **SB Jewellers**, Rajahmundry.  
-This project contains the source code for our **Coming Soon** website, built using:
+A responsive catalogue for Sri Balaji Imitation Jewellery, featuring 1 gram rold gold and CZ jewellery for boys and girls.
 
-- **HTML**
-- **CSS**
-- **JavaScript**
-- Hosted on **GitHub Pages**
+Website: https://loki0406.github.io/sb_jewellers_1gram/
 
-Our goal is to offer customers an elegant and easy online experience to browse our  
-**1 Gram Gold, Imitation Jewellery, Bridal Collections, Daily-Wear Designs**, and more.
+## Features
 
----
+- Eleven category collections with boys / girls filters
+- Accessible collection dialogs with style lists
+- Budget-friendly retail and wholesale message; no numeric prices
+- Visit Our Shop links and category-specific WhatsApp enquiry links
+- Existing shop logo, visiting card, telephone contacts and social channels
+- Responsive ivory, burgundy and antique-gold design
 
-## 🌐 Live Website
+## Files
 
-Visit our website here:  
-👉 **https://loki0406.github.io/sb_jewellers_1gram/**
+- `index.html`: page content and category cards
+- `styles.css`: responsive design
+- `catalogue.js`: filters, collection details and dialogs
+- `images/catalogue/*.webp`: optimised category illustrations
+- `images/logo.png`: existing logo
+- `images/visting_card_1.png`: existing visiting card
 
----
+## Image information
 
-## 📁 Project Structure
+Category imagery was created with AI as representative jewellery illustrations. It does not depict verified shop stock. The website states this near the catalogue and inside every collection dialog. Replace these images with actual shop photos using the same filenames whenever available.
 
-sb_jewellers_1gram/
-│
-├── index.html # Main website file
-├── README.md # Repository documentation
-│
-└── images/
-├── logo.png # Store logo
-├── visting_card_1.png # Visiting card version 1
-└── visting_card_2.png # Visiting card version 2
+## Editing
 
-yaml
-Copy code
+Change card text in `index.html` and matching detail text in the `catalogue` array at the top of `catalogue.js`. Replace category images without changing filenames to update the visuals. Shop location buttons use https://maps.app.goo.gl/DdZCBB8Nn4Cmtzv76.
 
----
-
-## 🖼️ Image Usage
-
-Images are stored in the **images/** folder and loaded in `index.html` using  
-**RAW GitHub URLs**, for example:
-
-https://raw.githubusercontent.com/loki0406/sb_jewellers_1gram/main/images/logo.png
-
-yaml
-Copy code
-
-This ensures the images load correctly on GitHub Pages.
-
----
-
-## 🚀 Features
-
-- Fully responsive (Mobile, Tablet, Desktop, TV)
-- Elegant & premium UI with gold-theme accents
-- Social media buttons:
-  - YouTube Channel 1  
-  - YouTube Channel 2  
-  - Instagram  
-  - WhatsApp Channel  
-- Visiting Card preview section
-- Contact details and shop information
-- Smooth layout and clean design
-
----
-
-## 🛠️ How to Edit the Website
-
-1. Open **index.html**
-2. Update text, images, or links as needed
-3. Commit and push to GitHub
-4. GitHub Pages will automatically update the live website
-
----
-
-## 💬 Contact
-
-For enquiries, reach out to us:
-
-📍 **SB Jewellers – Rajahmundry, Andhra Pradesh**  
-📞 WhatsApp / Call: **90323 99091**  
-📸 Instagram: **@sbjewellers_1gram**  
-
----
-
-## ⭐ Support the Project
-
-If you like our work, please give this repository a **⭐ Star** on GitHub!
+No build tools or installation are required. GitHub Pages can serve the repository root directly.
